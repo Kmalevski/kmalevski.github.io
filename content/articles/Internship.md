@@ -6,8 +6,8 @@ date: 2024-05-22T00:00:00.000Z
 layout: article
 ---
 
-# First internship 
-Malware analysis project
+# Building a Payload Validation Lab
+My 6 month internship at Outflank
 
 Check out Outflank here and reserve a meeting :(https://www.outflank.nl/)
 ![Outflank logo](/articles/article-1/outflank1.png)
@@ -19,28 +19,33 @@ Check out Outflank here and reserve a meeting :(https://www.outflank.nl/)
     - [PeSieve]
     - [Moneta]
 4. [Parsing the result's JSON file]
-5. 
+5. [Challenges]
+6. [CAPEv2 source code issues]
+7. [Results]
 
 
 ## Introduction
-The main objective of my internship was to build an isolated lab capable of systematically validating malware payloads. This lab would ensure that payloads behave as expected and identify indicators of compromise (IOCs) 
+Hello, cybersecurity enthusiasts! I'm Konstantin and I'm excited to share my six-month internship journey at Outflank.  This experience was centered around developing a sophisticated payload validation lab using open-source sandboxing solutions.
 
-Firstly I conducted research on the available solutions on the Internet. 
-I compared them and chose the best fit for the project.
+The main objective of my internship was to build an isolated lab capable of systematically validating malware payloads. 
+ This lab would ensure that payloads behave as expected and identify indicators of compromise (IOCs) 
 
-You can check their respective repos below:
 
-Cuckoo Sandbox: (https://github.com/cuckoosandbox/cuckoo)
+## Research
+The initial phase of the project involved extensive research on various sandboxing solutions. After comparing Cuckoo Sandbox, Drakvuf, and CapeV2, we selected CapeV2 for its superior automation, detailed reporting, and integration capabilities. 
+
+This decision was crucial in laying the foundation for the payload validation lab.
+
+You can check their respective github repositories below:
+
+**Cuckoo Sandbox*: (https://github.com/cuckoosandbox/cuckoo)
 ![Cuckoo](/articles/article-1/cuckoo.png)
 
-Drakvuf: (https://github.com/tklengyel/drakvuf)
+**Drakvuf*: (https://github.com/tklengyel/drakvuf)
 ![Drakvuf](/articles/article-1/drakvuf.png)
 
+**CAPEv2*: (https://github.com/kevoreilly/CAPEv2)
 ![CapeV2 repository](/articles/article-1/CAPEv2.png)
-
-
-After comparing eachother I have decided to select CAPEv2 because it is better all round than Drakvuf, 
-it is a continuation of Cuckoo, and has its own features.
 
 ## Installation and configuration
 Setting up CapeV2 required configuring a secure environment using isolated virtual machines. 
@@ -68,8 +73,8 @@ The sandboxing solution is known for its complex setup and it delivered on that 
  
 ## Integration of tools using Python
 Tools implemented:
-- Pe-sieve
-- Moneta 
+- Pe-sieve (https://github.com/hasherezade/pe-sieve)
+- Moneta (https://github.com/forrest-orr/moneta)
 
 A significant part of my internship was integrating tools like PE-Sieve and Moneta into CapeV2. PE-Sieve and Moneta help detecting in-memory modifications, which is essential for the payload validation process. I added them for an extra layer of scanning.
 
@@ -82,18 +87,47 @@ That way I can retrieve the results from the tools that run on the PE file.
 
 ![retrieved_files](/articles/article-1/results.png)
 
+
 ## Parsing the result's JSON file
 I developed a Flask application to parse and display data from PE-Sieve's JSON reports. This application transformed raw data into a more readable format, making it easier for analysts and operators to interpret the results.
 
 ![JSON parser](/articles/article-1/parsers.png)
 
+![json_parse2](/articles/article-1/json_parse2.png)
+
+## Challenges
+hroughout the internship, I faced and overcame numerous challenges, from dependency issues during installation to debugging code integrations. Here are some of the key challenges and how I resolved them:
+
+-  During the initial setup, I encountered several dependency conflicts. CAPEv2 is very dependency sensitive which is a problem beacuse even if 1 dependency conflicts with others, the sandboxing platform will become unstable and unusable. 
+
+![issue3](/articles/article-1/issue3.png)
+
+- Integrating tools like PE-Sieve and Moneta required significant knowledge of CAPEv2's functionalities as well as Python programming skills coding. 
+![issue4](/articles/article-1/issue4.png)
+
+### CAPEv2 source code troubles
+Part of the source code of CAPEv2 did not work properly which made the integration of tools more difficult.It is caused by deprecated code from the past because CAPEv2 comes from Cuckoo sandbox.  This issue affected a functionality within the CapeV2 sandbox.
 
 
+This function is essential because it passes the Process Identifier (PID) of the payload sample to all auxiliary modules, allowing them to execute on the specified process
+
+![source_code3](/articles/article-1/source_code_issue3.png)
+
+**How I proceeded to eliminate this problem was:**
+- alot of log statements were added to check where my code breaks
+- made sure add_pid_to_aux function was explicitly called at the start of the analysis
+- Alot of test and failure processes were made to continiously test the changes I made
+
+![source_code1](/articles/article-1/issue5.png)
+
+After a while I managed to fix the issue.
+
+The solution to the problem was simple at first sight but alot hours of troubleshooting sit behind it. The loop of fetching the PID's to the aux modules was not working, so I put it in another loop which did what I wanted. The function was working as expected.
+![source_code1](/articles/article-1/source_code_issue1.png)
 
 ## Reflection
 My six-month journey at Outflank was both challenging and rewarding. From going through the complex setup of CapeV2 to integrating advanced tools for malware analysis, every step was a learning curve. I hope to continue exploring and contributing to the field of cybersecurity. 
 
-I have shared my findings with the CAPEv2 community in their Github repository.
 
 ## Results
 - Research on available sandboxing solutions
@@ -116,8 +150,6 @@ Document 2: (https://docs.google.com/document/d/16ljtHHjs8Ykw86qGVeSWeJnc0pqLZHA
 
 
 
-
-
-
 Stay tuned for more news🔔!
+
 K@sio out.... 
