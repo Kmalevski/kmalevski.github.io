@@ -9,19 +9,19 @@ layout: article
 # Building a Payload Validation Lab
 My 6 month internship at Outflank
 
-Check out Outflank here and reserve a meeting :(https://www.outflank.nl/)
+Check out their website here and reserve a meeting [*Outflank:*](https://www.outflank.nl/)
 ![Outflank logo](/articles/article-1/outflank1.png)
 
 ### Table of Contents
-1.  [Introduction]
-2.  [Installation and configuration]
-3.  [Integration of tools with Python]
-    - [PeSieve]
-    - [Moneta]
-4. [Parsing the result's JSON file]
-5. [Challenges]
-6. [CAPEv2 source code issues]
-7. [Results]
+1.  [Introduction](#introduction)
+2.  [Installation and configuration](#installation-and-configuration)
+3.  [Integration of tools with Python](#integration-of-tools-using-python)
+    - [PeSieve](#pesieve)
+    - [Moneta](#moneta)
+4. [Parsing the result's JSON file](#parsing-the-results-json-file)
+5. [Challenges](#challenges)
+6. [CAPEv2 source code issues](#capev2-source-code-troubles)
+7. [Results](#results)
 
 
 ## Introduction
@@ -38,13 +38,13 @@ This decision was crucial in laying the foundation for the payload validation la
 
 You can check their respective github repositories below:
 
-**Cuckoo Sandbox*: (https://github.com/cuckoosandbox/cuckoo)
+ [*Cuckoo Sandbox*:](https://github.com/cuckoosandbox/cuckoo)
 ![Cuckoo](/articles/article-1/cuckoo.png)
 
-**Drakvuf*: (https://github.com/tklengyel/drakvuf)
+[*Drakvuf*:](https://github.com/tklengyel/drakvuf)
 ![Drakvuf](/articles/article-1/drakvuf.png)
 
-**CAPEv2*: (https://github.com/kevoreilly/CAPEv2)
+[*CAPEv2*:](https://github.com/kevoreilly/CAPEv2)
 ![CapeV2 repository](/articles/article-1/CAPEv2.png)
 
 ## Installation and configuration
@@ -73,8 +73,9 @@ The sandboxing solution is known for its complex setup and it delivered on that 
  
 ## Integration of tools using Python
 Tools implemented:
-- Pe-sieve (https://github.com/hasherezade/pe-sieve)
-- Moneta (https://github.com/forrest-orr/moneta)
+- ##### [PeSieve](https://github.com/hasherezade/pe-sieve)
+
+- ##### [*Moneta*](https://github.com/forrest-orr/moneta)
 
 A significant part of my internship was integrating tools like PE-Sieve and Moneta into CapeV2. PE-Sieve and Moneta help detecting in-memory modifications, which is essential for the payload validation process. I added them for an extra layer of scanning.
 
@@ -123,7 +124,7 @@ This function is essential because it passes the Process Identifier (PID) of the
 After a while I managed to fix the issue.
 
 The solution to the problem was simple at first sight but alot hours of troubleshooting sit behind it. The loop of fetching the PID's to the aux modules was not working, so I put it in another loop which did what I wanted. The function was working as expected.
-![source_code1](/articles/article-1/source_code_issue1.png)
+![source_code1](/articles/article-1/source_code_issue4.png)
 
 ## Reflection
 My six-month journey at Outflank was both challenging and rewarding. From going through the complex setup of CapeV2 to integrating advanced tools for malware analysis, every step was a learning curve. I hope to continue exploring and contributing to the field of cybersecurity. 
@@ -144,12 +145,13 @@ My six-month journey at Outflank was both challenging and rewarding. From going 
 ### Additional resources
 If you want to read more about my research and findings click the links below:
 
-Document 1: (https://docs.google.com/document/d/1D4KcmOjHAVkuApVuXmvaG8e39ci4o1W2-LJkrHW9Kbg/edit?usp=sharing)
+[*Research*](https://docs.google.com/document/d/1D4KcmOjHAVkuApVuXmvaG8e39ci4o1W2-LJkrHW9Kbg/edit?usp=sharing)
 
-Document 2: (https://docs.google.com/document/d/16ljtHHjs8Ykw86qGVeSWeJnc0pqLZHA10ZUEeeE5b6w/edit?usp=sharing)
+[*Code development*](https://docs.google.com/document/d/16ljtHHjs8Ykw86qGVeSWeJnc0pqLZHA10ZUEeeE5b6w/edit?usp=sharing)
 
 
 
-Stay tuned for more news🔔!
+Stay tuned for more news🔔
 
 K@sio out.... 
+![Logo](/articles/article-1/article1f.png)
