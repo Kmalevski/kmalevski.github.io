@@ -34,8 +34,6 @@ The main objective of my internship was to build an isolated lab capable of syst
 ## Research
 The initial phase of the project involved extensive research on various sandboxing solutions. After comparing Cuckoo Sandbox, Drakvuf, and CapeV2, we selected CapeV2 for its superior automation, detailed reporting, and integration capabilities. 
 
-This decision was crucial in laying the foundation for the payload validation lab.
-
 You can check their respective github repositories below:
 
  [*Cuckoo Sandbox*:](https://github.com/cuckoosandbox/cuckoo)
