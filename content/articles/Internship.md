@@ -6,8 +6,8 @@ date: 2024-05-22T00:00:00.000Z
 layout: article
 ---
 
-# Building a Payload Validation Lab
-My 6 month internship at Outflank
+# Building a payload validation lab
+My 6-month internship at Outflank
 
 Check out their website here and reserve a meeting [*Outflank:*](https://www.outflank.nl/)
 ![Outflank logo](/articles/article-1/outflank1.png)
