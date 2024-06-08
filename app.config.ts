@@ -27,8 +27,8 @@ export default defineAppConfig({
       message: 'Follow me on' // string that will be displayed in the footer (leave empty or delete to disable)
     },
     socials: {
-      twitter: 'nuxtlabs',
-      instagram: 'atinuxt',
+      twitter: 'KM_2108',
+      href: 'https://x.com/km__2108?s=21&t=RVodjs8_kprlpYOdR9SYDA',
       linkedin: {
         icon: 'uil:linkedin',
         label: 'LinkedIn',

@@ -2,14 +2,15 @@
 cover: /articles/article-1/malware-cover.jpg
 author:
   name: Konstantin Malevski
+description: My 6-month internship at Outflank
 date: 2024-05-22T00:00:00.000Z
 layout: article
 ---
 
 # Building a payload validation lab
-My 6-month internship at Outflank
+Working with CAPEv2 Sandbox to conduct payload validation on executables.
 
-Check out their website here and reserve a meeting [*Outflank:*](https://www.outflank.nl/)
+Shoutout to [*Outflank*](https://www.outflank.nl/) for giving me an opportunity to learn during my 6-month stay with the team💡
 ![Outflank logo](/articles/article-1/outflank1.png)
 
 ### Table of Contents
@@ -25,16 +26,16 @@ Check out their website here and reserve a meeting [*Outflank:*](https://www.out
 
 
 ## Introduction
-Hello, cybersecurity enthusiasts! I'm Konstantin and I'm excited to share my six-month internship journey at Outflank.  This experience was centered around developing a sophisticated payload validation lab using open-source sandboxing solutions.
+Hello, there! I'm Konstantin and I'm excited to share my six-month internship journey at Outflank.
 
 The main objective of my internship was to build an isolated lab capable of systematically validating malware payloads. 
  This lab would ensure that payloads behave as expected and identify indicators of compromise (IOCs) 
 
 
 ## Research
-The initial phase of the project involved extensive research on various sandboxing solutions. After comparing Cuckoo Sandbox, Drakvuf, and CapeV2, we selected CapeV2 for its superior automation, detailed reporting, and integration capabilities. 
+The beginning phase of the project involved extensive research on various sandboxing solutions. After comparing Cuckoo Sandbox, Drakvuf, and CapeV2, I selected CapeV2 for its superior automation, detailed reporting, and integration capabilities. 
 
-You can check their respective github repositories below:
+You can check their respective GitHub repositories below:
 
  [*Cuckoo Sandbox*:](https://github.com/cuckoosandbox/cuckoo)
 ![Cuckoo](/articles/article-1/cuckoo.png)
@@ -46,11 +47,10 @@ You can check their respective github repositories below:
 ![CapeV2 repository](/articles/article-1/CAPEv2.png)
 
 ## Installation and configuration
-Setting up CapeV2 required configuring a secure environment using isolated virtual machines. 
+Setting up CapeV2 required configuring a secure environment using isolated Windows virtual machines. 
 
-This setup ensured that the analysis of potentially harmful payloads would not affect the host system. 
+This setup ensured that the analysis and execution of the file will be contained and will not affect the host system. 
 
-The process involved installing dependencies, configuring network settings, and setting up Windows analysis machines.
 
 ![Architecture CapeV2](/articles/article-1/capearchitecture.png)
 > CapeV2 architecture shows the interaction between host and guest machines
@@ -71,11 +71,11 @@ The sandboxing solution is known for its complex setup and it delivered on that 
  
 ## Integration of tools using Python
 Tools implemented:
-- ##### [PeSieve](https://github.com/hasherezade/pe-sieve)
+- [PeSieve](https://github.com/hasherezade/pe-sieve)
 
-- ##### [*Moneta*](https://github.com/forrest-orr/moneta)
+- [Moneta](https://github.com/forrest-orr/moneta)
 
-A significant part of my internship was integrating tools like PE-Sieve and Moneta into CapeV2. PE-Sieve and Moneta help detecting in-memory modifications, which is essential for the payload validation process. I added them for an extra layer of scanning.
+A big part of my internship was integrating payload validation tools like PE-Sieve and Moneta into CapeV2. These tools help detecting in-memory modifications, which is essential for the payload validation process. I added them for an extra layer of scanning.
 
 I used Python to write scripts that ran the tools as an auxiliary module and became part of CAPEv2's system.
 That way I can retrieve the results from the tools that run on the PE file.
@@ -95,7 +95,8 @@ I developed a Flask application to parse and display data from PE-Sieve's JSON r
 ![json_parse2](/articles/article-1/json_parse2.png)
 
 ## Challenges
-hroughout the internship, I faced and overcame numerous challenges, from dependency issues during installation to debugging code integrations. Here are some of the key challenges and how I resolved them:
+Throughout the internship, the python-written platform presented many challenges: 
+from dependency issues during installation to debugging code integrations. 
 
 -  During the initial setup, I encountered several dependency conflicts. CAPEv2 is very dependency sensitive which is a problem beacuse even if 1 dependency conflicts with others, the sandboxing platform will become unstable and unusable. 
 
@@ -105,10 +106,9 @@ hroughout the internship, I faced and overcame numerous challenges, from depende
 ![issue4](/articles/article-1/issue4.png)
 
 ### CAPEv2 source code troubles
-Part of the source code of CAPEv2 did not work properly which made the integration of tools more difficult.It is caused by deprecated code from the past because CAPEv2 comes from Cuckoo sandbox.  This issue affected a functionality within the CapeV2 sandbox.
+Part of the source code of CAPEv2 did not work properly which made the integration of tools more difficult.It is caused by deprecated code from the past because CAPEv2 comes from Cuckoo sandbox.  
 
-
-This function is essential because it passes the Process Identifier (PID) of the payload sample to all auxiliary modules, allowing them to execute on the specified process
+This issue affected a functionality within CapeV2 that passes the Process Identifier (PID) of the payload sample to all auxiliary modules, allowing them to execute on the specified process
 
 ![source_code3](/articles/article-1/source_code_issue3.png)
 
@@ -125,7 +125,9 @@ The solution to the problem was simple at first sight but alot hours of troubles
 ![source_code1](/articles/article-1/source_code_issue4.png)
 
 ## Reflection
-My six-month journey at Outflank was both challenging and rewarding. From going through the complex setup of CapeV2 to integrating advanced tools for malware analysis, every step was a learning curve. I hope to continue exploring and contributing to the field of cybersecurity. 
+My six-month journey at Outflank was both challenging and rewarding. From going through the complex setup of CapeV2 to integrating advanced tools for malware analysis, every step was a learning curve. 
+
+It was a pleasure to be able to work on this project.
 
 
 ## Results
@@ -143,7 +145,7 @@ My six-month journey at Outflank was both challenging and rewarding. From going 
 ### Additional resources
 If you want to read more about my research and findings click the links below:
 
-[*Research*](https://docs.google.com/document/d/1D4KcmOjHAVkuApVuXmvaG8e39ci4o1W2-LJkrHW9Kbg/edit?usp=sharing)
+[*Research*](https://docs.google.com/document/d/1MV2QtiDBmzkg_Q2fhKaDDN6O8QETy_37vROH2zjhAVk/edit?usp=sharing)
 
 [*Code development*](https://docs.google.com/document/d/16ljtHHjs8Ykw86qGVeSWeJnc0pqLZHA10ZUEeeE5b6w/edit?usp=sharing)
 
