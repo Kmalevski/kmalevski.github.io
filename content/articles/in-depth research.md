@@ -90,7 +90,7 @@ However just embedding the executable inside the image will not be enough, since
 
 Plus there is a big issue with the tools I used previously like Open-stego:
 - they use the same mechanism for embedding and extracting the images which is something I m not fond of since I want the process of delivery to be automated.
-![OpenStego](/articles/article-3/openstego1.png)
+![OpenStego](/articles/article-3/openstego1.PNG)
 
 ## How does AV combat stego?
 Anti-virus solutions have traditionally safeguarded users against malware by scanning files against extensive databases of known threats. However, the emergence of stegomalware that conceals itself within seemingly innocuous files like images and PDFs—poses significant challenges for detection and prevention.
