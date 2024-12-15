@@ -2,7 +2,7 @@
 cover: \articles\article-3\in_depth_cover.webp
 author:
   name: Konstantin Malevski
-description: Coming Soon...
+description: Research aboutstegomalware
 date: 2024-12-06T00:00:00.000Z
 layout: article
 ---
