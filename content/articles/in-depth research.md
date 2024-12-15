@@ -70,7 +70,7 @@ We already concluded that stegomalware by using steganography is tough to deal w
 
 ### Tools
 There are various tools that enable us to embed messages or even paylaods inside images.
-![Steghide](/articles/article-3/steghide_part1.png)
+![Steghide](/articles/article-3/steghide_part1.PNG)
 
 An example are OpenStego and Steghide which are fairly simple to use.
 I played around with it for a while and decided to embed some payloads in images just to see what is the result.
@@ -83,7 +83,7 @@ I selected Metasploit and Veil in combination to try and confuse the AV and not 
 I wanted to simulate a scenario where a user visits a "bad" website, auto-downloads and executes the payload.
 
 ![veil](/articles/article-3/veil_part2.PNG)
-![metasploit](/articles/sarticle-3/metasploid_part2.PNG)
+![metasploit](/articles/article-3/metasploid_part2.PNG)
 ![apache](/articles/article-3/metasploid_part3PNG.PNG)
 
 However just embedding the executable inside the image will not be enough, since Windows AV static code scanner will block the downloading of the payload.
