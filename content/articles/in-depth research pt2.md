@@ -1,5 +1,5 @@
 ---
-cover: /articles/article-4/cover_part12.png
+cover: /articles/article-4/cover_part2.jpg
 author:
   name: Konstantin Malevski
 description: Bypassing Windows AV -> Coming Soon...
